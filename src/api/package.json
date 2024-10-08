@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "build": "rimraf dist && npx tsc",
+    "build": "rimraf src/dist && npx tsc",
     "prestart": "npm run build",
-    "start": "node dist/index.js",
+    "start": "node src/dist/index.js",
     "preserve": "npm run build",
-    "serve": "nodemon dist/index.js"
+    "serve": "nodemon src/dist/index.js"
   },
   "repository": {
     "type": "git",
@@ -21,11 +21,14 @@
   "homepage": "https://github.com/pnaskardev/kazam_assignment#readme",
   "description": "",
   "dependencies": {
+    "@types/config": "^3.3.5",
     "@types/cors": "^2.8.17",
     "concurrently": "^9.0.1",
     "config": "^3.3.12",
     "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
     "express": "^4.21.0",
+    "mongoose": "^8.7.0",
     "rimraf": "^6.0.1",
     "typescript": "^5.6.2",
     "winston": "^3.15.0"
