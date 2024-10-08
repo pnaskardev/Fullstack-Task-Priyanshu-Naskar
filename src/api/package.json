@@ -1,0 +1,38 @@
+{
+  "name": "todo_api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "rimraf dist && npx tsc",
+    "prestart": "npm run build",
+    "start": "node dist/index.js",
+    "preserve": "npm run build",
+    "serve": "nodemon dist/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pnaskardev/kazam_assignment.git"
+  },
+  "author": "pnaskardev",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pnaskardev/kazam_assignment/issues"
+  },
+  "homepage": "https://github.com/pnaskardev/kazam_assignment#readme",
+  "description": "",
+  "dependencies": {
+    "@types/cors": "^2.8.17",
+    "concurrently": "^9.0.1",
+    "config": "^3.3.12",
+    "cors": "^2.8.5",
+    "express": "^4.21.0",
+    "rimraf": "^6.0.1",
+    "typescript": "^5.6.2",
+    "winston": "^3.15.0"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.7.5",
+    "nodemon": "^3.1.7"
+  }
+}
