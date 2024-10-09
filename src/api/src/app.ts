@@ -1,7 +1,8 @@
 import express, { Express, Request, Response } from "express";
-import { configureMongoose } from "./utils/connectToDb";
+import { configureMongoose } from "./service/connectToDb";
 import cors from "cors";
 import { getConfig } from "./config";
+import { configureRedis } from "./service/connectToCache";
 
 // Use API_ALLOW_ORIGINS env var with comma separated urls like
 // `http://localhost:300, http://otherurl:100`
@@ -38,7 +39,8 @@ export const createApp = async (): Promise<Express> => {
   const app = express();
 
   //   Configuration
-  await configureMongoose(config.database);
+  // await configureMongoose(config.database);
+  await configureRedis(config.cache);
   // Middleware
   app.use(express.json());
 
