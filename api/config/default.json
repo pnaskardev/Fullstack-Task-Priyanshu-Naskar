@@ -1,13 +1,13 @@
 {
     "database": {
-        "connectionString": "mongodb+srv://assignment_user:HCgEj5zv8Hxwa4xO@test-cluster.6f94f5o.mongodb.net/",
-        "databaseName": "assignment",
-        "collection": "assignment_Priyanshu_N"
+        "connectionString": "",
+        "databaseName": "",
+        "collection": ""
     },
     "cache": {
-        "connectionString": "redis-12675.c212.ap-south-1-1.ec2.cloud.redislabs.com",
-        "connectionPort": "12675",
-        "username": "default",
-        "password": "dssYpBnYQrl01GbCGVhVq2e4dYvUrKJB"
+        "connectionString": "",
+        "connectionPort": "",
+        "username": "",
+        "password": ""
     }
 }
