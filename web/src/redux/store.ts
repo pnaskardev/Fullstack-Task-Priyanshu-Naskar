@@ -1,38 +1,29 @@
-import { configureStore } from '@reduxjs/toolkit'
+import { configureStore } from "@reduxjs/toolkit";
 
-import { persistStore, persistReducer } from 'redux-persist'
+import { persistStore, persistReducer } from "redux-persist";
 
-import storage from 'redux-persist/lib/storage'
+import storage from "redux-persist/lib/storage";
 
 import todoReducer from "./todo";
 
-
-
 const persistConfig = {
-  key: 'root',
+  key: "root",
   storage,
-}
+};
 
-
-
-const persistedReducer = persistReducer(persistConfig, todoReducer)
+const persistedReducer = persistReducer(persistConfig, todoReducer);
 
 // we are persisting todos on the local storage
 export const store = configureStore({
   reducer: {
-    todos: persistedReducer
+    todos: persistedReducer,
   },
+});
 
-})
+const persistor = persistStore(store);
 
+export { persistor };
 
+export type RootState = ReturnType<typeof store.getState>;
 
-const persistor = persistStore(store)
-
-
-
-export {persistor};
-
-export type RootState = ReturnType<typeof store.getState>
-
-export type AppDispatch = typeof store.dispatch
+export type AppDispatch = typeof store.dispatch;

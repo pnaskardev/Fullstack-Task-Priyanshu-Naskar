@@ -29,7 +29,6 @@ function App() {
   // Show toast notifications for error messages
   useEffect(() => {
     if (error) {
-      console.log("error"); // Log error to console
       toast.error(error, {
         position: "top-center",
         autoClose: 5000, // 5 seconds
