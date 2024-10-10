@@ -33,14 +33,8 @@ const originList = (): string[] | string => {
 };
 
 export const createApp = async (): Promise<Express> => {
-  const config = await getConfig();
-
   // const config = await getConfig();
   const app = express();
-
-  //   Configuration
-  // await configureMongoose(config.database);
-  await configureRedis(config.cache);
   // Middleware
   app.use(express.json());
 
