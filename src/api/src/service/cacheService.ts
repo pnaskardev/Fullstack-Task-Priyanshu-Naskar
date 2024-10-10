@@ -37,9 +37,9 @@ class RedisService {
 
       const defaultKey = "FULLSTACK_TASK_PRIYANSHU_NASKAR";
       const keyExists = await this.client.exists(defaultKey);
-      if (keyExists) {
-        await this.client.del(defaultKey);
-      }
+    //   if (keyExists) {
+    //     await this.client.del(defaultKey);
+    //   }
     } catch (err) {
       logger.error(`Redis database error: ${err}`);
       throw err;

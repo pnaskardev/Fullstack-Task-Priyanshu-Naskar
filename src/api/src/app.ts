@@ -1,8 +1,7 @@
 import express, { Express, Request, Response } from "express";
 import { configureMongoose } from "./service/connectToDb";
 import cors from "cors";
-import { getConfig } from "./config";
-import { configureRedis } from "./service/connectToCache";
+import { fetchAllTasks } from "./controller/task.controller";
 
 // Use API_ALLOW_ORIGINS env var with comma separated urls like
 // `http://localhost:300, http://otherurl:100`
@@ -45,8 +44,9 @@ export const createApp = async (): Promise<Express> => {
   );
 
   // API Routes
-  app.get("/test", (req: Request, res: Response) => {
-    res.status(200).json({ message: "Test route working!" });
+  app.get("/fetchAllTasks", fetchAllTasks);
+  app.get("/healthcheck", (_, res: Response) => {
+    res.sendStatus(200);
   });
 
   // Swagger UI

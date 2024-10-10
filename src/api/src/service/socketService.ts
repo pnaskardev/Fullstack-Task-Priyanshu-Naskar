@@ -25,6 +25,7 @@ class SocketService {
 
       socket.on("add", async (message: TodoItem) => {
         logger.info(`New Task Added`, message);
+
         const redisClient = RedisService.getClient;
         const defaultKey = "FULLSTACK_TASK_PRIYANSHU_NASKAR";
 
