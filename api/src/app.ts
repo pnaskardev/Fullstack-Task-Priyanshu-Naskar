@@ -20,14 +20,13 @@ const originList = (): string[] | string => {
     return "*";
   }
 
-  const origins = ["https://portal.azure.com", "https://ms.portal.azure.com", "http://localhost:3000"];
+  const origins = ["https://portal.azure.com", "https://ms.portal.azure.com", "http://localhost:5173"];
 
   if (allowOrigins && allowOrigins !== "") {
     allowOrigins.split(",").forEach((origin) => {
       origins.push(origin);
     });
   }
-  console.log(origins);
   return origins;
 };
 
