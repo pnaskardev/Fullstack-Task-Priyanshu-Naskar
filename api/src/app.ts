@@ -11,10 +11,13 @@ export const createApp = async (): Promise<Express> => {
 
   // Middleware
   app.use(express.json());
+  app.options("*", cors()); // Handle all OPTIONS requests globally
 
   app.use(
     cors({
-      origin: allowAllOrigins, // Allow requests from any origin
+      origin: "*", // Allow all origins
+      methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"], // Allowed methods
+      allowedHeaders: ["Content-Type", "Authorization"], // Allowed headers
     })
   );
 
