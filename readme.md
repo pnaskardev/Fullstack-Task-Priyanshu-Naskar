@@ -4,6 +4,15 @@
 This project is a fullstack web application built as an assignment for Kazam, leveraging modern technologies for both the frontend and backend. The application utilizes Vite and **React** for the frontend with Tailwind CSS for styling, and **Node.js** for the backend, all written in **TypeScript**.
 
 
+## Deployment
+
+Here is the deployed link [Deployment](http://65.0.199.40:80/)
+
+```bash
+  http://65.0.199.40:80/
+```
+
+
 ## Environment Variables
 
 To run this project, you will need to add the following environment variables to your .env file and **save it inside of the api folder**
@@ -34,7 +43,7 @@ To run this project, you will need to add the following environment variables to
 Clone the project
 
 ```bash
-  git clone https://github.com/pnaskardev/Fullstack-Task-Priyanshu-Naskar.git
+  git clone https://github.com/pnaskardev/kazam_assignment
 ```
 
 Go to the project directory
@@ -56,7 +65,7 @@ Access the webapp at
 Clone the project
 
 ```bash
-  git clone https://github.com/pnaskardev/Fullstack-Task-Priyanshu-Naskar.git
+  git clone https://github.com/pnaskardev/kazam_assignment
 ```
 
 Go to the project directory
