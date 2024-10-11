@@ -3,11 +3,14 @@
 
 This project is a fullstack web application built as an assignment for Kazam, leveraging modern technologies for both the frontend and backend. The application utilizes Vite and **React** for the frontend with Tailwind CSS for styling, and **Node.js** for the backend, all written in **TypeScript**.
 
+## Deployment [link](http://13.233.128.81:80/)
+Please access the Todo web application at - [link](http://13.233.128.81:80/)
 
 ## Images
 ![image](https://github.com/user-attachments/assets/0e9b08f6-02ef-4873-935b-aee2fdaf2cd0)
 ![image](https://github.com/user-attachments/assets/c192561b-1253-4c12-b472-f30106a36638)
-![image](https://github.com/user-attachments/assets/493e8819-26bb-4c54-9016-350635b2bac7)
+![image](https://github.com/user-attachments/assets/5c1a2317-14d6-4bff-ab4e-8eff1d0b185d)
+
 
 
 
