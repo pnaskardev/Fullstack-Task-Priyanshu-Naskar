@@ -2,8 +2,6 @@ import socketIOClient from "socket.io-client";
 
 
 const PORT = 3000;
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-expect-error
 const baseURL = import.meta.env.VITE_BASE_URL;
 console.log("BASE URL", baseURL);
 console.log("PORT", PORT);
