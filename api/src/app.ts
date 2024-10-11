@@ -1,43 +1,19 @@
-import express, { Express, Request, Response } from "express";
+import express, { Express, Response } from "express";
 import cors from "cors";
 import { fetchAllTasks } from "./controller/task.controller";
 
-// Use API_ALLOW_ORIGINS env var with comma separated urls like
-// `http://localhost:300, http://otherurl:100`
-// Requests coming to the api server from other urls will be rejected as per
-// CORS.
-const allowOrigins = process.env.API_ALLOW_ORIGINS;
-
-// Use NODE_ENV to change webConfiguration based on this value.
-// For example, setting NODE_ENV=development disables CORS checking,
-// allowing all origins.
-const environment = process.env.NODE_ENV;
-
-const originList = (): string[] | string => {
-  if (environment && environment === "development") {
-    console.log(`Allowing requests from any origins. NODE_ENV=${environment}`);
-    return "*";
-  }
-
-  const origins = ["*", "http://localhost:5173"];
-
-  if (allowOrigins && allowOrigins !== "") {
-    allowOrigins.split(",").forEach((origin) => {
-      origins.push(origin);
-    });
-  }
-  return origins;
-};
+// Allow all origins
+const allowAllOrigins = "*";
 
 export const createApp = async (): Promise<Express> => {
-  // const config = await getConfig();
   const app = express();
+
   // Middleware
   app.use(express.json());
 
   app.use(
     cors({
-      origin: originList(),
+      origin: allowAllOrigins, // Allow requests from any origin
     })
   );
 
@@ -47,7 +23,7 @@ export const createApp = async (): Promise<Express> => {
     res.sendStatus(200);
   });
 
-  // Swagger UI
+  // Swagger UI (commented out for now)
   // const swaggerDocument = yaml.load("./openapi.yaml");
   // app.use("/", swaggerUI.serve, swaggerUI.setup(swaggerDocument));
 
