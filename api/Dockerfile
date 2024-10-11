@@ -13,8 +13,10 @@ RUN npm install
 # Copy the rest of the application code to the container
 COPY . .
 
+RUN npm run build
+
 # Expose the port that the app listens on
 EXPOSE 3000
 
 # Command to start the app
-CMD ["npm", "start"]
+CMD ["node", "src/dist/index.js"]
