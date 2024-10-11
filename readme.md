@@ -50,7 +50,7 @@ To run this project, you will need to add the following environment variables to
 Clone the project
 
 ```bash
-  git clone https://github.com/pnaskardev/kazam_assignment
+  git clone https://github.com/pnaskardev/fullstack_task_Priyanshu-Naskar.git
 ```
 
 Go to the project directory
@@ -72,7 +72,7 @@ Access the webapp at
 Clone the project
 
 ```bash
-  git clone https://github.com/pnaskardev/kazam_assignment
+  git clone https://github.com/pnaskardev/fullstack_task_Priyanshu-Naskar.git
 ```
 
 Go to the project directory
