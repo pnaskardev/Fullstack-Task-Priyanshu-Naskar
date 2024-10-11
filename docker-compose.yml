@@ -5,6 +5,7 @@ services:
     build: ./api
     ports:
       - "3000:3000" # Exposes the backend on port 3000
+    command: "npm run start" # Ensure backend is running correctly
     environment:
       NODE_ENV: development
     env_file:
