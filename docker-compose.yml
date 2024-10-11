@@ -4,7 +4,7 @@ services:
   backend:
     build: ./api
     ports:
-      - 3000:3000 # Exposes the backend on port 3000
+      - 3100:3000 # Exposes the backend on port 3000
     command: "npm run start" # Ensure backend is running correctly
     environment:
       NODE_ENV: development
@@ -18,7 +18,7 @@ services:
   #   ports:
   #     - 80:80 # Exposes the frontend on port 5173
   #   environment:
-  #     BASE_URL: http://backend:3000/ # Refer to the backend by container name
+  #     BASE_URL: backend:3000/ # Refer to the backend by container name
   #   env_file:
   #     - ./web/.env # Specify the environment variable file for the frontend
   #   depends_on:
