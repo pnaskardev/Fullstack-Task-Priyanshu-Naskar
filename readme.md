@@ -4,13 +4,13 @@
 This project is a fullstack web application built as an assignment for Kazam, leveraging modern technologies for both the frontend and backend. The application utilizes Vite and **React** for the frontend with Tailwind CSS for styling, and **Node.js** for the backend, all written in **TypeScript**.
 
 
-## Deployment
+<!-- ## Deployment
 
 Here is the deployed link [Deployment](http://65.0.199.40:80/)
 
 ```bash
   http://65.0.199.40:80/
-```
+``` -->
 
 
 ## Environment Variables
