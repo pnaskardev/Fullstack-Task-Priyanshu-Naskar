@@ -19,12 +19,12 @@ export const createApp = async (): Promise<Express> => {
   );
 
   // API Routes
-  app.get("/fetchAllTasks", fetchAllTasks);
   app.get("/", (_, res: Response) => {
     logger.info("Health check passed");
     console.log("Health check passed");
     res.sendStatus(200);
   });
+  app.get("/fetchAllTasks", fetchAllTasks);
 
   // Swagger UI (commented out for now)
   // const swaggerDocument = yaml.load("./openapi.yaml");
