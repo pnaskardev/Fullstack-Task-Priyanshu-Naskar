@@ -39,9 +39,9 @@ class RedisService {
       const key_config = await getConfig();
       const defaultKey = key_config.defaultKey;
       const keyExists = await this.client.exists(defaultKey);
-    //   if (keyExists) {
-    //     await this.client.del(defaultKey);
-    //   }
+      if (keyExists) {
+        await this.client.del(defaultKey);
+      }
     } catch (err) {
       logger.error(`Redis database error: ${err}`);
       throw err;

@@ -8,7 +8,6 @@ import TodoList from "./components/TodoList/TodoList";
 
 import "react-toastify/dist/ReactToastify.css";
 import ClipLoader from "react-spinners/ClipLoader";
-import { CgNotes } from "react-icons/cg";
 
 function App() {
   const dispatch = useDispatch<AppDispatch>();
@@ -55,8 +54,13 @@ function App() {
         pauseOnHover
       />
       <div className="bg-white shadow-md rounded-lg p-6 w-full max-w-md">
-        <div className="app__header mb-4 flex items-stretch ">
-          <CgNotes className="text-4xl mr-2" />
+        <div className="app__header mb-4 flex items-center justify-left ">
+          {/* <CgNotes className="text-4xl mr-2" /> */}
+          <img
+            src="assets/icons8-notes-app.svg"
+            alt="Notes Icon"
+            className="w-12 h-12 mr-2"
+          />
           <h1 className="app__title text-2xl font-bold text-left">Note App</h1>
         </div>
         {/* Show loading message while fetching todos */}
@@ -75,7 +79,7 @@ function App() {
           [&::-webkit-scrollbar-thumb]:rounded-full
           [&::-webkit-scrollbar-thumb]:bg-gray-300
           dark:[&::-webkit-scrollbar-track]:bg-gray-100
-          dark:[&::-webkit-scrollbar-thumb]:bg-amber-900"
+          dark:[&::-webkit-scrollbar-thumb]:bg-amber-800"
         >
           {loading ? (
             <div className="flex justify-center items-center">

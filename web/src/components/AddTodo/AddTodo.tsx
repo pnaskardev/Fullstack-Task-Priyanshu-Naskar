@@ -1,16 +1,30 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import { useDispatch } from "react-redux";
 
 import { v4 as uuidv4 } from "uuid";
 
 import { addTodo } from "../../redux/todo";
-import { PlusIcon } from "@heroicons/react/16/solid";
+// import { PlusIcon } from "@heroicons/react/16/solid";
+import { toast, ToastContainer } from "react-toastify";
 
 const AddTodo = () => {
   const dispatch = useDispatch();
   const [task, setTask] = useState("");
   const [error, setError] = useState("");
+
+  // Show toast notifications for error messages
+  useEffect(() => {
+    if (error) {
+      toast.error(error, {
+        position: "top-center",
+        autoClose: 5000, // 5 seconds
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+      }); // Show error toast
+    }
+  }, [error]);
 
   const handleAddTaskSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -34,9 +48,22 @@ const AddTodo = () => {
   return (
     <form
       onSubmit={handleAddTaskSubmit}
-      className="flex items-center space-x-2"
+      className="flex items-center"
     >
-      <div className="flex-1">
+      {
+        <ToastContainer
+          position="top-center" // Positioning the toast at the top center
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+        />
+      }
+      <div className="flex-1 mr-2">
         <input
           onChange={handleUpdateTodoChange}
           value={task}
@@ -44,11 +71,15 @@ const AddTodo = () => {
           className="forminput w-full p-2 border border-gray-300 rounded"
           placeholder="New Note"
         />
-        {error && <p className="formerror-text text-red-500">{error}</p>}
       </div>
-      <button className="btn form_btn bg-amber-900 text-white py-2 px-4 rounded flex items-stretch">
-        <PlusIcon className="h-5 w-5 mr-1" />
+      <button className="btn form_btn bg-amber-800 text-white py-2 px-3 rounded flex items-center">
+        {/* <PlusIcon className="h-5 w-5 mr-1" /> */}
         {/*Plus Icon*/}
+        <img
+          src="assets/plus-circle.svg"
+          alt="plus circle"
+          className="h-5 w-5 mr-1"
+        />
         Add
       </button>
     </form>

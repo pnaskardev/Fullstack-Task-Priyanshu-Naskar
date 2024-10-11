@@ -1,5 +1,4 @@
 import express, { Express, Request, Response } from "express";
-import { configureMongoose } from "./service/connectToDb";
 import cors from "cors";
 import { fetchAllTasks } from "./controller/task.controller";
 
