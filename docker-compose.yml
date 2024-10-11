@@ -1,0 +1,30 @@
+version: "3"
+
+services:
+  backend:
+    build: ./api
+    ports:
+      - "3000:3000" # Exposes the backend on port 3000
+    environment:
+      NODE_ENV: development
+    env_file:
+      - ./api/.env # Specify the environment variable file for the backend
+    networks:
+      - common-network
+
+  frontend:
+    build: ./web
+    ports:
+      - "5173:5173" # Exposes the frontend on port 5173
+    environment:
+      - BASE_URL=http://localhost:3000/ # Refer to the backend by container name
+    env_file:
+      - ./web/.env # Specify the environment variable file for the frontend
+    depends_on:
+      - backend # Ensure the backend is up before starting the frontend
+    networks:
+      - common-network
+
+networks:
+  common-network:
+    driver: bridge # Define a common bridge network

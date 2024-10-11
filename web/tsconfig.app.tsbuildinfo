@@ -1,0 +1,1 @@
+{"root":["./src/App.tsx","./src/index.tsx","./src/api/socket.ts","./src/components/AddTodo/AddTodo.tsx","./src/components/TodoList/TodoList.tsx","./src/components/TodoList/TodoItem/TodoItem.tsx","./src/models/TodoModel.ts","./src/redux/store.ts","./src/redux/todo.ts"],"version":"5.6.3"}

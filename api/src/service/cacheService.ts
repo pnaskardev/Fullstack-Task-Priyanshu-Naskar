@@ -1,6 +1,7 @@
 import { createClient, RedisClientType } from "redis";
 import { logger } from "../config/observability";
 import { RedisConfig } from "../config/appConfig";
+import { getConfig } from "../config";
 
 class RedisService {
   private static _instance: RedisService;
@@ -35,7 +36,8 @@ class RedisService {
 
       await this.client.connect();
 
-      const defaultKey = "FULLSTACK_TASK_PRIYANSHU_NASKAR";
+      const key_config = await getConfig();
+      const defaultKey = key_config.defaultKey;
       const keyExists = await this.client.exists(defaultKey);
     //   if (keyExists) {
     //     await this.client.del(defaultKey);

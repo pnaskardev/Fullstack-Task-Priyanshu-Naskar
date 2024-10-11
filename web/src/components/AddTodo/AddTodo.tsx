@@ -42,7 +42,7 @@ const AddTodo = () => {
           value={task}
           type="text"
           className="forminput w-full p-2 border border-gray-300 rounded"
-          placeholder="Add todo..."
+          placeholder="New Note"
         />
         {error && <p className="formerror-text text-red-500">{error}</p>}
       </div>

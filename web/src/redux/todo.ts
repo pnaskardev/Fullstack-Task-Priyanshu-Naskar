@@ -3,7 +3,8 @@ import { TodoInterface } from "../models/TodoModel";
 import socket from "../api/socket"; // Import your socket instance
 
 export const fetchTodo = createAsyncThunk("fetchTodo", async () => {
-  const response = await fetch("http://localhost:3100/fetchAllTasks");
+  const response = await fetch("http://localhost:3000/fetchAllTasks");
+  // const response = await fetch(`${baseURL}/fetchAllTasks`);
   return response.json();
 });
 

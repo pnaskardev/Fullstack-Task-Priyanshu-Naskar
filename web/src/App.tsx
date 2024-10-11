@@ -8,6 +8,7 @@ import TodoList from "./components/TodoList/TodoList";
 
 import "react-toastify/dist/ReactToastify.css";
 import ClipLoader from "react-spinners/ClipLoader";
+import { CgNotes } from "react-icons/cg";
 
 function App() {
   const dispatch = useDispatch<AppDispatch>();
@@ -54,8 +55,9 @@ function App() {
         pauseOnHover
       />
       <div className="bg-white shadow-md rounded-lg p-6 w-full max-w-md">
-        <div className="app__header mb-4">
-          <h1 className="app__title text-2xl font-bold text-center">
+        <div className="app__header mb-4 flex items-stretch ">
+          <CgNotes className="text-4xl mr-2" />
+          <h1 className="app__title text-2xl font-bold text-left">
             Note App
           </h1>
         </div>

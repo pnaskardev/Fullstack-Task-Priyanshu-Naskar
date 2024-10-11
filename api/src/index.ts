@@ -7,10 +7,9 @@ import { getConfig } from "./config";
 import MongoService from "./service/dbService";
 
 const main = async () => {
-  const port = process.env.PORT || 3100;
-
-  const socketService = new SocketService();
   const config = await getConfig();
+  const port = config.port || 3100;
+  const socketService = new SocketService();
   await MongoService.connect(config.database);
   await RedisService.connect(config.cache);
 

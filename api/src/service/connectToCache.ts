@@ -2,6 +2,7 @@ import { createClient } from "redis";
 
 import { logger } from "../config/observability";
 import { RedisConfig } from "../config/appConfig";
+import { getConfig } from "../config";
 
 let redisClient: ReturnType<typeof createClient>;
 
@@ -27,7 +28,8 @@ export const configureRedis = async (config: RedisConfig) => {
 
     await redisClient.connect();
 
-    const defaultKey = "FULLSTACK_TASK_PRIYANSHU_NASKAR";
+    const key_config = await getConfig();
+    const defaultKey = key_config.defaultKey;
     const keyExists = await redisClient.exists(defaultKey);
     if (!keyExists) {
       await redisClient.set(defaultKey, JSON.stringify([]));

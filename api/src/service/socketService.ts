@@ -2,6 +2,7 @@ import { Server } from "socket.io";
 import { logger } from "../config/observability";
 import RedisService from "./cacheService";
 import { TodoItem, TodoItemModel } from "../models/noteModel";
+import { getConfig } from "../config";
 
 class SocketService {
   private _io: Server;
@@ -27,7 +28,8 @@ class SocketService {
         logger.info(`New Task Added`, message);
 
         const redisClient = RedisService.getClient;
-        const defaultKey = "FULLSTACK_TASK_PRIYANSHU_NASKAR";
+        const key_config = await getConfig();
+        const defaultKey = key_config.defaultKey;
 
         if (message.task) {
           const todoItem = new TodoItemModel({

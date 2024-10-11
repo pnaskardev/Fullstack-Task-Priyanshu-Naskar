@@ -12,6 +12,9 @@ export interface RedisConfig {
 }
 
 export interface AppConfig {
+  environment: string;
+  port: number;
+  defaultKey: string;
   database: DatabaseConfig;
   cache: RedisConfig;
 }

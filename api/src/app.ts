@@ -20,7 +20,7 @@ const originList = (): string[] | string => {
     return "*";
   }
 
-  const origins = ["https://portal.azure.com", "https://ms.portal.azure.com", "http://localhost:5173"];
+  const origins = ["*", "http://localhost:5173"];
 
   if (allowOrigins && allowOrigins !== "") {
     allowOrigins.split(",").forEach((origin) => {
