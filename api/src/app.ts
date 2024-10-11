@@ -1,6 +1,7 @@
 import express, { Express, Response } from "express";
 import cors from "cors";
 import { fetchAllTasks } from "./controller/task.controller";
+import { logger } from "./config/observability";
 
 // Allow all origins
 const allowAllOrigins = "*";
@@ -19,7 +20,9 @@ export const createApp = async (): Promise<Express> => {
 
   // API Routes
   app.get("/fetchAllTasks", fetchAllTasks);
-  app.get("/healthcheck", (_, res: Response) => {
+  app.get("/", (_, res: Response) => {
+    logger.info("Health check passed");
+    console.log("Health check passed");
     res.sendStatus(200);
   });
 
