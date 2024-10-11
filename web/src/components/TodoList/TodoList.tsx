@@ -7,7 +7,7 @@ type TodoListProps = {
 
 const TodoList = ({ todos }: TodoListProps) => {
   return (
-    <div className="todo-list-container">
+    <div className="todo-list-container ">
       <ul className="todo-list">
         {todos.map((todo) => (
           <TodoItem

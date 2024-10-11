@@ -54,17 +54,17 @@ function App() {
         pauseOnHover
       />
       <div className="bg-white shadow-md rounded-lg p-6 w-full max-w-md">
-        <div className="app__header mb-4 flex items-center justify-left ">
+        <div className="app__header mb-4 flex items-center justify-start ">
           {/* <CgNotes className="text-4xl mr-2" /> */}
           <img
             src="assets/icons8-notes-app.svg"
             alt="Notes Icon"
-            className="w-12 h-12 mr-2"
+            className="w-12 h-12 mr-2 object-left"
           />
           <h1 className="app__title text-2xl font-bold text-left">Note App</h1>
         </div>
         {/* Show loading message while fetching todos */}
-        <div className="app__inputs-box mb-4">
+        <div className="app__inputs-box mb-4 text-left">
           <AddTodo />
         </div>
         <h2 className="font-bold text-l mb-2 border-b border-gray-300 pb-2">
@@ -86,7 +86,7 @@ function App() {
               <ClipLoader
                 loading={loading}
                 cssOverride={override}
-                size={150}
+                size={100}
                 aria-label="Loading Spinner"
                 data-testid="loader"
               />
