@@ -31,6 +31,7 @@ class MongoService {
       await mongoose.connect(config.connectionString, {
         dbName: config.databaseName,
       });
+      await db.dropCollection(config.collection);
     } catch (err) {
       logger.error(`Mongoose database error: ${err}`);
       throw err;

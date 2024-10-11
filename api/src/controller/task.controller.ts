@@ -15,16 +15,14 @@ export async function fetchAllTasks(
     const defaultKey = config.defaultKey;
 
     const cacheData = await redisClient.lRange(defaultKey, 0, -1);
-    console.log(cacheData);
     let tasks: TodoItem[] = cacheData
       ? cacheData.map((item:string) => JSON.parse(item))
       : [];
 
-    // const dbData = await TodoItemModel.find().lean().exec();
-
-    tasks = [...tasks];
-    // tasks = [...tasks, ...dbData];
-    res.status(200).send(tasks);
+    const dbData = await TodoItemModel.find().lean().exec();
+    tasks = [...tasks, ...dbData];
+    logger.info(tasks);
+    res.status(200).json(tasks);
   } catch (error) {
     logger.error(`Error fetching tasks`, error);
     next(error);

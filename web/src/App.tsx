@@ -57,9 +57,7 @@ function App() {
       <div className="bg-white shadow-md rounded-lg p-6 w-full max-w-md">
         <div className="app__header mb-4 flex items-stretch ">
           <CgNotes className="text-4xl mr-2" />
-          <h1 className="app__title text-2xl font-bold text-left">
-            Note App
-          </h1>
+          <h1 className="app__title text-2xl font-bold text-left">Note App</h1>
         </div>
         {/* Show loading message while fetching todos */}
         <div className="app__inputs-box mb-4">
@@ -88,6 +86,10 @@ function App() {
                 aria-label="Loading Spinner"
                 data-testid="loader"
               />
+            </div>
+          ) : todos.length === 0 ? ( // Check if todos length is zero
+            <div className="text-left text-gray-500">
+              No notes have been added.
             </div>
           ) : (
             <TodoList todos={todos} />
