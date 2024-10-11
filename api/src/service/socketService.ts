@@ -1,8 +1,7 @@
 import { Server } from "socket.io";
 import { logger } from "../config/observability";
-import RedisService from "./cacheService";
-import { TodoItem, TodoItemModel } from "../models/noteModel";
-import { getConfig } from "../config";
+import { TodoItem } from "../models/noteModel";
+import { handleAddTask } from "../controller/task.controller";
 
 class SocketService {
   private _io: Server;
@@ -23,47 +22,8 @@ class SocketService {
 
     io.on("connect", (socket) => {
       logger.info(`New Socket Connected`, socket.id);
+      socket.on("add", (message: TodoItem) => handleAddTask(message, this._io));
 
-      socket.on("add", async (message: TodoItem) => {
-        logger.info(`New Task Added`, message);
-
-        const redisClient = RedisService.getClient;
-        const key_config = await getConfig();
-        const defaultKey = key_config.defaultKey;
-
-        if (message.task) {
-          const todoItem = new TodoItemModel({
-            task: message.task,
-          });
-
-          await redisClient.rPush(defaultKey, JSON.stringify(todoItem));
-          logger.info(`Task added to cache`);
-          // Retrieve and parse the list of items
-          const cacheData = await redisClient.lRange(defaultKey, 0, -1); // Get all items in the list
-          const items: TodoItem[] = cacheData
-            ? cacheData.map((item) => JSON.parse(item))
-            : [];
-          console.log(items);
-
-          if (items.length > 50) {
-            try {
-              const todoDocuments = items.map(
-                (item) =>
-                  new TodoItemModel({
-                    _id: item.id,
-                    task: item.task,
-                  })
-              );
-              await TodoItemModel.insertMany(todoDocuments);
-              logger.info(`Data saved to MongoDB`);
-              await redisClient.del(defaultKey);
-              logger.info(`Cache cleared`);
-            } catch (error) {
-              logger.error(`Error saving data to MongoDB`, error);
-            }
-          }
-        }
-      });
     });
   }
 

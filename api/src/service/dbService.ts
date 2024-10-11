@@ -32,6 +32,14 @@ class MongoService {
         dbName: config.databaseName,
       });
       await db.dropCollection(config.collection);
+      const collections = await mongoose.connection.db
+        ?.listCollections()
+        .toArray();
+      const collectionNames = collections
+        ? collections.map((collection) => collection.name)
+        : [];
+      logger.info("Collections in the database: ", collectionNames);
+
     } catch (err) {
       logger.error(`Mongoose database error: ${err}`);
       throw err;
