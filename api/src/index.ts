@@ -11,7 +11,7 @@ const main = async () => {
 
   const socketService = new SocketService();
   const config = await getConfig();
-  // await MongoService.connect(config.database);
+  await MongoService.connect(config.database);
   await RedisService.connect(config.cache);
 
   const app = await createApp();

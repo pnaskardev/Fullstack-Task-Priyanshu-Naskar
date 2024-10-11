@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from "express";
 import RedisService from "../service/cacheService";
-import { TodoItem } from "../models/noteModel";
+import { TodoItem, TodoItemModel } from "../models/noteModel";
 import { logger } from "../config/observability";
 
 export async function fetchAllTasks(
@@ -18,11 +18,9 @@ export async function fetchAllTasks(
       ? cacheData.map((item) => JSON.parse(item))
       : [];
 
-    // const dbData = await TodoItemModel.find().lean().exec();
+    const dbData = await TodoItemModel.find().lean().exec();
 
-    // tasks = [...tasks, ...dbData];
-    tasks = [...tasks];
-
+    tasks = [...tasks, ...dbData];
     res.status(200).send(tasks);
   } catch (error) {
     logger.error(`Error fetching tasks`, error);
