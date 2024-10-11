@@ -1,11 +1,7 @@
 import React, { useEffect, useState } from "react";
-
 import { useDispatch } from "react-redux";
-
 import { v4 as uuidv4 } from "uuid";
-
 import { addTodo } from "../../redux/todo";
-// import { PlusIcon } from "@heroicons/react/16/solid";
 import { toast, ToastContainer } from "react-toastify";
 
 const AddTodo = () => {
@@ -22,7 +18,7 @@ const AddTodo = () => {
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
-      }); // Show error toast
+      });
     }
   }, [error]);
 
@@ -40,30 +36,25 @@ const AddTodo = () => {
 
   const handleUpdateTodoChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setTask(e.target.value);
-    if (task.trim().length > 5 && task.trim().length < 50) {
+    if (e.target.value.trim().length > 5 && e.target.value.trim().length < 50) {
       setError("");
     }
   };
 
   return (
-    <form
-      onSubmit={handleAddTaskSubmit}
-      className="flex items-center"
-    >
-      {
-        <ToastContainer
-          position="top-center" // Positioning the toast at the top center
-          autoClose={5000}
-          hideProgressBar={false}
-          newestOnTop={false}
-          closeOnClick
-          rtl={false}
-          pauseOnFocusLoss
-          draggable
-          pauseOnHover
-        />
-      }
-      <div className="flex-1 mr-2">
+    <form onSubmit={handleAddTaskSubmit} className="flex flex-col sm:flex-row sm:items-center justify-center">
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
+      <div className="flex-1 mb-2 sm:mb-0 sm:mr-2">
         <input
           onChange={handleUpdateTodoChange}
           value={task}
@@ -72,9 +63,7 @@ const AddTodo = () => {
           placeholder="New Note"
         />
       </div>
-      <button className="btn form_btn bg-amber-800 text-white py-2 px-3 rounded flex items-center">
-        {/* <PlusIcon className="h-5 w-5 mr-1" /> */}
-        {/*Plus Icon*/}
+      <button className="btn form_btn bg-amber-800 text-white py-2 px-3 rounded flex items-center justify-center w-full sm:w-auto">
         <img
           src="assets/plus-circle.svg"
           alt="plus circle"
@@ -87,3 +76,4 @@ const AddTodo = () => {
 };
 
 export default AddTodo;
+
