@@ -13,18 +13,18 @@ services:
     networks:
       - common-network
 
-  # frontend:
-  #   build: ./web
-  #   ports:
-  #     - 80:80 # Exposes the frontend on port 5173
-  #   environment:
-  #     BASE_URL: backend:3000/ # Refer to the backend by container name
-  #   env_file:
-  #     - ./web/.env # Specify the environment variable file for the frontend
-  #   depends_on:
-  #     - backend # Ensure the backend is up before starting the frontend
-  #   networks:
-  #     - common-network
+  frontend:
+    build: ./web
+    ports:
+      - 80:80 # Exposes the frontend on port 5173
+    environment:
+      BASE_URL: backend:3000/ # Refer to the backend by container name
+    env_file:
+      - ./web/.env # Specify the environment variable file for the frontend
+    depends_on:
+      - backend # Ensure the backend is up before starting the frontend
+    networks:
+      - common-network
 
 networks:
   common-network:
