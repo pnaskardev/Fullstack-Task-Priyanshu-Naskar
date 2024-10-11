@@ -19,7 +19,7 @@ const main = async () => {
   const server = createServer(app);
   socketService.io.attach(server);
 
-  server.listen(port, host, () => { // Binding to 0.0.0.0 here
+  app.listen(port, host, () => { // Binding to 0.0.0.0 here
     logger.info(`Started listening on port ${port} at host ${host}`);
   });
 
